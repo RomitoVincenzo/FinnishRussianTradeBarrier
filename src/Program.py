@@ -280,13 +280,13 @@ def plot_sent_analysis(data,title):
     plt.xlabel('Sentiment');
     plt.hist(data, bins=np.arange(4)-0.5, edgecolor='black')
     plt.show()
-def plot_cloud(wordcloud):
-    # Set figure size
-    plt.figure(figsize=(15, 8))
-    # Display image
-    plt.imshow(wordcloud) 
-    # No axis details
-    plt.axis("off");          
+# def plot_cloud(wordcloud):
+#     # Set figure size
+#     plt.figure(figsize=(40, 30))
+#     # Display image
+#     plt.imshow(wordcloud) 
+#     # No axis details
+#     plt.axis("off");          
 def wordcloud(data):
     word_cloud_graph=[]
     for i in range(1,len(data)):
@@ -298,7 +298,7 @@ def wordcloud(data):
     # Generate wordcloud
     wordcloud = WordCloud(width = 6000, height = 4000, random_state=4, background_color='white', colormap='Blues', collocations=False, stopwords = list(stopwords.words('english'))+["Message","will","good","one","little","ba","know","want"]+get_date_entities(answers), mask=mask).generate(cloud)
     # Plot
-    plot_cloud(wordcloud)
+    #plot_cloud(wordcloud)
     wordcloud.to_file("wordcloud.png")
 def get_date_entities(data):
     nlp = spacy.load("en_core_web_sm")
@@ -380,7 +380,7 @@ def task3():
 def task4(): 
     
     # use global variabel 
-    my_text = "Task4 has been completed.You will be able to see the wordmap on the *Plot* section of the IDE and at the address FinnishRussianTradeBarrier\src\wordcloud.png.\n Task 4 description: After appropriate processing stage where you remove all data associated to date, headline and stopwords, plot the WordCloud graph to visualize the important wording in the discussion forums.\n Comment on the inherent content of the website."
+    my_text = "Task4 has been completed.You will be able to see the wordmap at the address FinnishRussianTradeBarrier\src\wordcloud.png.\n Task 4 description: After appropriate processing stage where you remove all data associated to date, headline and stopwords, plot the WordCloud graph to visualize the important wording in the discussion forums.\n Comment on the inherent content of the website."
     wordcloud(answers)
     # configure 
     my_label.config(text = my_text) 
